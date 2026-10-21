@@ -9,9 +9,15 @@ const app = express();
 const amenityRoutes = require("./routes/amenities");
 const bookingRoutes = require("./routes/bookings");
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://property-hub-kohl-five.vercel.app"
+];
+
 app.use(
   cors({
     origin: process.env.CLIENT_URL || "http://localhost:5173",
+    credentials: true
   })
 );
 
